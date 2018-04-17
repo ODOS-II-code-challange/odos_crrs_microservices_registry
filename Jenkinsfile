@@ -19,18 +19,19 @@ pipeline {
             steps {
                 script{
                   Common.slack 'Building...'
-                  Common.jHipsterBuild()
+                  Common.mavenBuild()
                 }
             }
         }
-        stage('Sonar Scan') {
-          steps {
-            script{
-              Common.slack 'Sonar Scan and Upload...'
-              Common.sonarScan()
-            }
-          }
-        }
+        // doesn't work with Maven yet
+        // stage('Sonar Scan') {
+        //   steps {
+        //     script{
+        //       Common.slack 'Sonar Scan and Upload...'
+        //       Common.sonarScan()
+        //     }
+        //   }
+        // }
         stage('Fortify Scan') {
             steps {
               script{
@@ -43,7 +44,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Packaging into a container...'
-                Common.buildJHipsterContainer('crrsvc')
+                Common.buildDockerContainer('crrs_ms_reg')
               }
             }
         }
@@ -51,7 +52,7 @@ pipeline {
         //     steps {
         //       script{
         //         Common.slack 'Twistlock Scan...'
-        //         Common.twistlock('docker.lassiterdynamics.com:5000', 'crrsvc','latest')
+        //         Common.twistlock('docker.lassiterdynamics.com:5000', 'crrs_ms_reg','latest')
         //       }
         //     }
         // }
@@ -59,7 +60,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Push to Docker Registry..'
-                Common.pushContainer('crrsvc')
+                Common.pushContainer('crrs_ms_reg')
               }
             }
         }
@@ -67,24 +68,11 @@ pipeline {
             steps {
               script{
                 Common.slack 'Deploying to Test Environment...'
-                Common.deployToOpenShift('odos-ii-test','crrsvc','latest')
+                Common.deployToOpenShift('odos-ii-test','crrs_ms_reg','latest')
               }
             }
         }
-        stage('FT') {
-            steps {
-              script{
-                Common.slack 'Functional Testing...'
-              }
-            }
-        }
-        stage('PT') {
-            steps {
-              script{
-                Common.slack 'Performance Testing...'
-              }
-            }
-        }
+
         stage('Merge') {
             steps {
               script{
