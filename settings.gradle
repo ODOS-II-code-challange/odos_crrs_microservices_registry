@@ -1,5 +1,7 @@
 pluginManagement {
     repositories {
+        // mavenLocal()
+        // jcenter()
         maven { url "http://nexus.lassiterdynamics.com:8081/repository/gradle-plugins/" }
     }
 }
