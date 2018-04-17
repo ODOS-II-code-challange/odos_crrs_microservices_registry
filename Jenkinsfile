@@ -23,23 +23,6 @@ pipeline {
                 }
             }
         }
-        // doesn't work with Maven yet
-        // stage('Sonar Scan') {
-        //   steps {
-        //     script{
-        //       Common.slack 'Sonar Scan and Upload...'
-        //       Common.sonarScan()
-        //     }
-        //   }
-        // }
-        stage('Fortify Scan') {
-            steps {
-              script{
-                Common.slack 'Fortify Scan...'
-                Common.fortify('src','reports')
-              }
-            }
-        }
         stage('Build Container') {
             steps {
               script{
@@ -48,14 +31,14 @@ pipeline {
               }
             }
         }
-        // stage('Twistlock Scan') {
-        //     steps {
-        //       script{
-        //         Common.slack 'Twistlock Scan...'
-        //         Common.twistlock('docker.lassiterdynamics.com:5000', 'crrs_ms_reg','latest')
-        //       }
-        //     }
-        // }
+        stage('Twistlock Scan') {
+            steps {
+              script{
+                Common.slack 'Twistlock Scan...'
+                Common.twistlock($DOCKER_REGISTRY, 'crrs_ms_reg','latest')
+              }
+            }
+        }
         stage('Push Container') {
             steps {
               script{
