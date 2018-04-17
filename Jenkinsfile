@@ -35,7 +35,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Twistlock Scan...'
-                Common.twistlock($DOCKER_REGISTRY, 'crrs_ms_reg','latest')
+                Common.twistlock("${DOCKER_REGISTRY}", 'crrs_ms_reg','latest')
               }
             }
         }
