@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.jhipster.registry.filters.responserewriting.SwaggerBasePathRewritingFilterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-04-16T19:54:40" hostname="yonathans-MacBook-Pro.local" time="0.076">
+  <properties/>
+  <testcase name="shouldFilter_on_default_swagger_url" classname="io.github.jhipster.registry.filters.responserewriting.SwaggerBasePathRewritingFilterTest" time="0.016"/>
+  <testcase name="shouldNotFilter_on_wrong_url" classname="io.github.jhipster.registry.filters.responserewriting.SwaggerBasePathRewritingFilterTest" time="0.0"/>
+  <testcase name="run_on_valid_response" classname="io.github.jhipster.registry.filters.responserewriting.SwaggerBasePathRewritingFilterTest" time="0.058"/>
+  <testcase name="shouldFilter_on_default_swagger_url_with_param" classname="io.github.jhipster.registry.filters.responserewriting.SwaggerBasePathRewritingFilterTest" time="0.0"/>
+  <system-out><![CDATA[2018-04-16 15:54:40.128  WARN   --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

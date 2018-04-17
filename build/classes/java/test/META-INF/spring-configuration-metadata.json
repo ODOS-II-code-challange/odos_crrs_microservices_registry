@@ -1,0 +1,9 @@
+{
+  "groups": [{
+    "name": "application",
+    "sourceType": "io.github.jhipster.registry.config.ApplicationProperties",
+    "type": "io.github.jhipster.registry.config.ApplicationProperties"
+  }],
+  "hints": [],
+  "properties": []
+}

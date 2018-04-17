@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-04-16T19:54:41" hostname="yonathans-MacBook-Pro.local" time="0.345">
+  <properties/>
+  <testcase name="processValidationErrorTest" classname="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" time="0.169"/>
+  <testcase name="processAccessDeniedExceptionTest" classname="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" time="0.064"/>
+  <testcase name="processMethodNotSupportedExceptionTest" classname="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" time="0.033"/>
+  <testcase name="processParameterizedValidationErrorTest" classname="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" time="0.047"/>
+  <testcase name="processRuntimeExceptionTest" classname="io.github.jhipster.registry.web.rest.errors.ExceptionTranslatorTest" time="0.03"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
