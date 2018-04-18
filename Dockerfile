@@ -11,3 +11,5 @@ CMD java \
 
 COPY target/jhipster-registry-3.2.4.war /jhipster-registry.war
 COPY central-config /
+
+USER centos
