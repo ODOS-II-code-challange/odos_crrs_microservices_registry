@@ -27,7 +27,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Packaging into a container...'
-                Common.buildDockerContainer('crrs_ms_reg')
+                Common.buildDockerContainer('crrsmsreg')
               }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Twistlock Scan...'
-                Common.twistlock("${DOCKER_REGISTRY}", 'crrs_ms_reg','latest')
+                Common.twistlock("${DOCKER_REGISTRY}", 'crrsmsreg','latest')
               }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Push to Docker Registry..'
-                Common.pushContainer('crrs_ms_reg')
+                Common.pushContainer('crrsmsreg')
               }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
             steps {
               script{
                 Common.slack 'Deploying to Test Environment...'
-                Common.deployToOpenShift('odos-ii-test','crrs_ms_reg','latest')
+                Common.deployToOpenShift('odos-ii-test','crrsmsreg','latest')
               }
             }
         }
