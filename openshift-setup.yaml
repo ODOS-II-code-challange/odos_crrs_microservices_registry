@@ -2,23 +2,23 @@ apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   labels:
-    app: crrmsreg
-  name: crrmsreg
-  # namespace: odos-test
+    app: crrsmsreg
+  name: crrsmsreg
+  namespace: odos-ii-test
 spec:
   replicas: 1
   selector:
-    deploymentconfig: crrmsreg
+    deploymentconfig: crrsmsreg
   template:
     metadata:
       labels:
-        app: crrmsreg
-        deploymentconfig: crrmsreg
+        app: crrsmsreg
+        deploymentconfig: crrsmsreg
     spec:
       containers:
-        - image: crrmsreg:latest
+        - image: crrsmsreg:testing
           imagePullPolicy: Always
-          name: crrmsreg
+          name: crrsmsreg
           ports:
             - containerPort: 8083
               protocol: TCP
@@ -33,10 +33,10 @@ spec:
     - imageChangeParams:
         automatic: true
         containerNames:
-          - crrmsreg
+          - crrsmsreg
         from:
           kind: ImageStreamTag
-          name: crrmsreg:latest
+          name: crrsmsreg:latest
           # namespace: odos-test
       type: ImageChange
     - type: ConfigChange
@@ -44,7 +44,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: crrmsreg
+  name: crrsmsreg
+  namespace: odos-ii-test
 spec:
   selector:
     docker-registry: default
@@ -57,13 +58,14 @@ spec:
 apiVersion: v1
 kind: Route
 metadata:
-  name: crrmsreg
+  name: crrsmsreg
+  namespace: odos-ii-test
 spec:
-  host: crrmsreg-odos-ii-test.pro-us-east-1.openshiftapps.com
+  host: crrsmsreg-odos-ii-test.pro-us-east-1.openshiftapps.com
   port:
     targetPort: 8761
   to:
     kind: Service
-    name: crrmsreg
+    name: crrsmsreg
     weight: 100
   wildcardPolicy: None
